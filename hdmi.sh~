@@ -1,7 +1,5 @@
 #!/bin/bash
 
-wplink="/home/v/Pictures/wallpaper_link"
-
 if [ "$#" -eq 1 ]; then
     HDMI=`xrandr | grep 'HDMI.* connected' | head -n 1 | awk '{print $1}'`
     echo "HDMI: $HDMI"
@@ -15,11 +13,8 @@ if [ "$#" -eq 1 ]; then
     else
         HDMI_STR=`echo $HDMI | awk -F"-" '{print $1" "$2}'`
         if [ "$1" = "on" ]; then
-            echo "HDMI_STR: $HDMI_STR"            
+            echo "HDMI_STR: $HDMI_STR"
             xrandr --output $HDMI --mode 1880x980_60.00 --right-of eDP-1
-            if [ -L "$wplink" ]; then
-                feh --bg-fill "$wplink"
-            fi
             SND_PROFILE=`pacmd list-cards | grep "output:hdmi.*($HDMI_STR).* available: unknown" | head -n1 | awk -F" " '{print substr($1, 1, length($1) -1)}'`
             echo "SND_PROFILE: $SND_PROFILE"
             if [ -z $SND_PROFILE ]; then
