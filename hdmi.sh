@@ -1,6 +1,9 @@
 #!/bin/bash
 
 wplink="/home/v/Pictures/wallpaper_link"
+mode=1880x980_60.00
+# mode=3840x2160
+#mode=1920x1080
 
 if [ "$#" -eq 1 ]; then
     HDMI=`xrandr | grep 'HDMI.* connected' | head -n 1 | awk '{print $1}'`
@@ -16,7 +19,7 @@ if [ "$#" -eq 1 ]; then
         HDMI_STR=`echo $HDMI | awk -F"-" '{print $1" "$2}'`
         if [ "$1" = "on" ]; then
             echo "HDMI_STR: $HDMI_STR"            
-            xrandr --output $HDMI --mode 1880x980_60.00 --right-of eDP-1
+            xrandr --output $HDMI --right-of eDP-1 --mode $mode
             if [ -L "$wplink" ]; then
                 feh --bg-fill "$wplink"
             fi

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 SND_PROFILE=""
-
+analog_profile="output:analog-stereo+input:analog-stereo"
+hdmi_profile="output:hdmi-stereo+input:analog-stereo"
 if [ "$#" -eq 1 ]; then    
     if [ "$1" = "analog" ]; then
         SND_PROFILE=`pacmd list-cards | grep "output:analog.* available: unknown" | tail -n1 | awk -F" " '{print substr($1, 1, length($1) -1)}'`

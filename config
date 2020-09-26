@@ -4,7 +4,8 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
+# Use xprop and xev
+    
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -32,18 +33,26 @@ exec --no-startup-id nm-applet
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-fill /home/v/Pictures/wallpaper_link
 exec --no-startup-id ~/.config/i3/create_hdmi_mode.sh
-
+exec --no-startup-id xmodmap -e "keycode 62 = Return"
+    
 bindsym $mod+Control+h --no-startup-id ~/.config/i3/create_hdmi_mode.sh
 
 bindsym Print exec scrot -e 'mv $f /home/v/Pictures/screenshots'
 bindsym $mod+Print --release exec "nohup scrot -s -e 'mv $f /home/v/Pictures/screenshots' &"
-
+bindsym $mod+p exec /home/v/.config/i3/reloadwp.sh
+    
 # bindsym $mod+c --no-startup-id zenity --calendar
 
 # Setting border for all windows
 # set default_border pixel 1
-for_window[class=".*"] border pixel 1
-            
+for_window[class=".*"] border pixel 3
+
+# For teams
+for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
+for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
+for_window [title="*| Microsoft Teams" class="microsoft teams - preview"] font pango:monospace 20 
+for_window [title="*| Microsoft Teams" class="Microsoft Teams - Preview"] font pango:monospace 20
+                
 mode hdmi {
         # switch on/off hdmi
         bindsym o exec --no-startup-id /home/v/.config/i3/hdmi.sh on        
@@ -122,7 +131,7 @@ bindsym $mod+b exec brave-browser
 bindsym $mod+Shift+b exec --no-startup-id "brave-browser --incognito"
 
 #file browser
-bindsym $mod+i exec "nautilus --browser ~"        
+bindsym $mod+i exec "thunar"        
 
 # start octave
 bindsym $mod+o exec --no-startup-id "nohup octave &"
