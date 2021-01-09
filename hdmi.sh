@@ -19,7 +19,7 @@ if [ "$#" -eq 1 ]; then
         HDMI_STR=`echo $HDMI | awk -F"-" '{print $1" "$2}'`
         if [ "$1" = "on" ]; then
             echo "HDMI_STR: $HDMI_STR"            
-            xrandr --output $HDMI --right-of eDP-1 --mode $mode
+            xrandr --output $HDMI --left-of eDP-1 --mode $mode
             if [ -L "$wplink" ]; then
                 feh --bg-fill "$wplink"
             fi

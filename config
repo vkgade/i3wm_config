@@ -40,9 +40,11 @@ bindsym $mod+Control+h --no-startup-id ~/.config/i3/create_hdmi_mode.sh
 bindsym Print exec scrot -e 'mv $f /home/v/Pictures/screenshots'
 bindsym $mod+Print --release exec "nohup scrot -s -e 'mv $f /home/v/Pictures/screenshots' &"
 bindsym $mod+p exec /home/v/.config/i3/reloadwp.sh
-    
+bindsym $mod+c exec urxvt -e calcurse    
 # bindsym $mod+c --no-startup-id zenity --calendar
 
+bindsym $mod+t exec urxvt -e yokadi
+bindcode $mod+49 exec emacs    
 # Setting border for all windows
 # set default_border pixel 1
 for_window[class=".*"] border pixel 3
