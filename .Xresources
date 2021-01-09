@@ -48,7 +48,7 @@ URxvt.geometry: 46x12
 URxvt.internalBorder: 2
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
-URxvt.saveline: 100000
+URxvt.saveLines: 100000000000000
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
@@ -57,6 +57,8 @@ URxvt.background: [70]#282828
 URxvt.iso14755: false
 
 !! Common Keybinds for Navigations
+URxvt*scrollBar:false
+URxvt*scrollBar_right: false
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
 URxvt.keysym.Control-Up: \033[1;5A
