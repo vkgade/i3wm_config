@@ -1,0 +1,30 @@
+#!/bin/bash
+
+wplink="/home/v/Pictures/wallpaper_link"
+
+if [ ! "$#" -gt 0 ]; then
+   echo "Expecting 1 argument"
+   exit 1
+fi
+
+if [ -L "$wplink" ]; then
+    unlink "$wplink"
+    if [ "$?" -ne 0 ]; then
+        echo "Unable to unlink current wallpaper"
+        exit 1
+    fi
+fi
+
+fpath=$(realpath "$1")
+
+if [ -f "$fpath" ]; then
+    test=$(file -b --mime-type "$fpath" | awk -F'/' '{print $1}')
+    if [ $test == "image" ]; then
+        ln -s "$fpath" "$wplink"
+        feh --bg-fill "$wplink"
+    fi
+else
+    echo "No file exists by name: $fpath"
+    exit 1
+fi
+    

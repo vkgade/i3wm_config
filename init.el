@@ -39,6 +39,7 @@
  '(desktop-globals-to-save
    (quote
     (desktop-missing-file-warning tags-file-name tags-table-list search-ring regexp-search-ring register-alist file-name-history default-frame-alist)))
+ '(ecb-options-version "2.40")
  '(ecb-source-path
    (quote
     (("/home/v/Documents/turpy/scoring_app" "scoring-app")
@@ -52,7 +53,7 @@
      ("/home/v/Documents/projects/camchat" "camchat")
      ("/home/v/Documents/st/st_lukesmith" "stluke")
      ("/home/v/Documents/projects/farmyr/farmyr" "farmyr")
-     ("/home/v/Documents/work/wilt/wilt_api_1_2_group" "wilt_api_1_2_group"))))
+     ("/home/v/Documents/work/stark/prestigemills" "prestigemills"))))
  '(evil-emacs-state-cursor (quote ("#E57373" hbar)))
  '(evil-insert-state-cursor (quote ("#E57373" bar)))
  '(evil-normal-state-cursor (quote ("#FFEE58" box)))
@@ -87,7 +88,7 @@
  '(linum-format " %7i ")
  '(package-selected-packages
    (quote
-    (go-add-tags go-autocomplete go-capf go-complete go-errcheck go-gen-test go-imenu go-impl go-imports go-playground go-playground-cli go-scratch go-tag clojure-mode-extra-font-locking connection csharp-mode csproj-mode csv dad-joke dired-explorer dired-imenu dired-launch dired-narrow dired-open disk django-commands django-manage django-mode vue-html-mode vue-mode wallpaper wc-mode web-beautify x-path-walker x509-mode xkcd pug-mode 2048-game ample-theme angular-mode apropospriate-theme arjen-grey-theme auto-complete auto-complete-c-headers auto-complete-clang autumn-light-theme backlight borland-blue-theme boron-theme brainfuck-mode brutalist-theme calmer-forest-theme cdlatex circe clojure-mode cloud-theme cmake-font-lock cmake-mode color-theme color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow color-theme-solarized company-c-headers company-lua company-nginx company-php cuda-mode cyberpunk-theme cypher-mode cython-mode d-mode daemons dakrone-theme dark-mint-theme darkburn-theme darkmine-theme darkokai-theme darktooth-theme datetime dired-git-info docker docker-api docker-cli docker-compose-mode dockerfile-mode dracula-theme dropbox easy-jekyll easy-kill-extras ecb eink-theme es-mode fsharp-mode git-command git-commit github-browse-file github-clone github-review github-search gitignore-mode go-mode google-maps goose-theme gulp-task-runner heroku heroku-theme i3wm ini-mode jabber jade-mode jvm-mode keyword-search latex-extra latex-math-preview mongo monochrome-theme monokai-alt-theme monokai-pro-theme monokai-theme monotropic-theme mood-one-theme noctilux-theme node-resolver nodejs-repl nodenv northcode-theme nova-theme oceanic-theme pacmacs pcap-mode php-mode pig-mode pyenv-mode python-pytest restart-emacs reverse-theme sage-shell-mode sexy-monochrome-theme shell-command slack spacemacs-theme sublime-themes sudoku swap-regions swift-mode swift3-mode telepathy twilight-anti-bright-theme typescript-mode vagrant virtualenv volume web-mode web-mode-edit-element web-search weechat weechat-alert whois win-switch window-jump window-layout window-number window-numbering xterm-color yaml-mode yoshi-theme zweilight-theme coffee-mode darkroom dash vlf ahungry-theme chess company company-ebdb company-math company-statistics csv-mode dict-tree diffview easy-kill js2-mode json-mode)))
+    (gited phps-mode gnu-elpa-keyring-update php-scratch go-add-tags go-autocomplete go-capf go-complete go-errcheck go-gen-test go-imenu go-impl go-imports go-playground go-playground-cli go-scratch go-tag clojure-mode-extra-font-locking connection csharp-mode csproj-mode csv dad-joke dired-explorer dired-imenu dired-launch dired-narrow dired-open disk django-commands django-manage django-mode vue-html-mode vue-mode wallpaper wc-mode web-beautify x-path-walker x509-mode xkcd pug-mode 2048-game ample-theme angular-mode apropospriate-theme arjen-grey-theme auto-complete auto-complete-c-headers auto-complete-clang autumn-light-theme backlight borland-blue-theme boron-theme brainfuck-mode brutalist-theme calmer-forest-theme cdlatex circe clojure-mode cloud-theme cmake-font-lock cmake-mode color-theme color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow color-theme-solarized company-c-headers company-lua company-nginx company-php cuda-mode cyberpunk-theme cypher-mode cython-mode d-mode daemons dakrone-theme dark-mint-theme darkburn-theme darkmine-theme darkokai-theme darktooth-theme datetime dired-git-info docker docker-api docker-cli docker-compose-mode dockerfile-mode dracula-theme dropbox easy-jekyll easy-kill-extras ecb eink-theme es-mode fsharp-mode git-command git-commit github-browse-file github-clone github-review github-search gitignore-mode go-mode google-maps goose-theme gulp-task-runner heroku heroku-theme i3wm ini-mode jabber jade-mode jvm-mode keyword-search latex-extra latex-math-preview mongo monochrome-theme monokai-alt-theme monokai-pro-theme monokai-theme monotropic-theme mood-one-theme noctilux-theme node-resolver nodejs-repl nodenv northcode-theme nova-theme oceanic-theme pacmacs pcap-mode php-mode pig-mode pyenv-mode python-pytest restart-emacs reverse-theme sage-shell-mode sexy-monochrome-theme shell-command slack spacemacs-theme sublime-themes sudoku swap-regions swift-mode swift3-mode telepathy twilight-anti-bright-theme typescript-mode vagrant virtualenv volume web-mode web-mode-edit-element web-search weechat weechat-alert whois win-switch window-jump window-layout window-number window-numbering xterm-color yaml-mode yoshi-theme zweilight-theme coffee-mode darkroom dash vlf ahungry-theme chess company company-ebdb company-math company-statistics csv-mode dict-tree diffview easy-kill js2-mode json-mode)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#262626")))
  '(pos-tip-background-color "#3c3c3c")
  '(pos-tip-foreground-color "#9E9E9E")
@@ -136,11 +137,13 @@
   (add-to-list
    'package-archives
    ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
-   '("melpa" . "http://melpa.milkbox.net/packages/")
+   '("melpa" . "http://melpa.milkbox.net/packages")
    t))
 
 (defalias 'e 'ecb-activate)
 (defalias 'ed 'ecb-deactivate)
+(defalias 'cr 'comment-region)
+(defalias 'ur 'uncomment-region)
 
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
 (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
@@ -170,6 +173,22 @@
     (set-frame-parameter nil 'alpha new)))
 (global-set-key (kbd "C-c t") 'set-frame-alpha)
         
+(defun stop-using-minibuffer ()
+  "kill the minibuffer"
+  (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
+    (abort-recursive-edit)))
+
+(add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer :ignore-auto :noconfirm))
+(defalias 'r 'revert-buffer-no-confirm)
+
+(global-auto-revert-mode t)
+
+(setq x-select-enable-clipboard t)
+
 (defun stop-using-minibuffer ()
   "kill the minibuffer"
   (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
