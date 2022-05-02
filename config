@@ -108,8 +108,8 @@ bindsym XF86AudioMute exec --no-startup-id /home/v/.config/i3/i3wm_config/volume
 # Sreen brightness controls
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-bindsym XF86MonBrightnessUp exec "light -A 5; notify-send 'brightness up'" 
-bindsym XF86MonBrightnessDown exec "light -U 5; notify-send 'brightness down'" 
+bindsym XF86MonBrightnessUp exec "val=$(/home/v/.config/i3/i3wm_config/brightness.sh up); notify-send brightness $val" 
+bindsym XF86MonBrightnessDown exec "val=$(/home/v/.config/i3/i3wm_config/brightness.sh down); notify-send brightness $val" 
 # setup basic defaults
 exec --no-startup-id /home/v/.config/i3/setup.sh
 
