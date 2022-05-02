@@ -32,19 +32,19 @@ floating_modifier $mod
 exec --no-startup-id nm-applet
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-fill /home/v/Pictures/wallpaper_link
-exec --no-startup-id ~/.config/i3/create_hdmi_mode.sh
+exec --no-startup-id ~/.config/i3/i3wm_config/create_hdmi_mode.sh
 exec --no-startup-id xmodmap -e "keycode 62 = Return"
     
-bindsym $mod+Control+h --no-startup-id ~/.config/i3/create_hdmi_mode.sh
+bindsym $mod+Control+h --no-startup-id ~/.config/i3/i3wm_config/create_hdmi_mode.sh
 
 bindsym Print exec scrot -e 'mv $f /home/v/Pictures/screenshots'
 bindsym $mod+Print --release exec "nohup scrot -s -e 'mv $f /home/v/Pictures/screenshots' &"
-bindsym $mod+p exec /home/v/.config/i3/reloadwp.sh
+bindsym $mod+p exec /home/v/.config/i3/i3wm_config/reloadwp.sh
 bindsym $mod+c exec urxvt -e calcurse    
 # bindsym $mod+c --no-startup-id zenity --calendar
 
 bindsym $mod+t exec urxvt -e yokadi
-bindcode $mod+49 exec emacs    
+bindcode $mod+49 exec emacs   
 # Setting border for all windows
 # set default_border pixel 1
 for_window[class=".*"] border pixel 3
@@ -57,9 +57,9 @@ for_window [title="*| Microsoft Teams" class="Microsoft Teams - Preview"] font p
                 
 mode hdmi {
         # switch on/off hdmi
-        bindsym o exec --no-startup-id /home/v/.config/i3/hdmi.sh on        
-        bindsym f exec --no-startup-id /home/v/.config/i3/hdmi.sh off
-        bindsym c exec --no-startup-id /home/v/.config/i3/create_hdmi_mode.sh
+        bindsym o exec --no-startup-id /home/v/.config/i3/i3wm_config/hdmi.sh on        
+        bindsym f exec --no-startup-id /home/v/.config/i3/i3wm_config/hdmi.sh off
+        bindsym c exec --no-startup-id /home/v/.config/i3/i3wm_config/create_hdmi_mode.sh
         bindsym Return mode "default"
         bindsym Escape mode "default"
 
@@ -70,9 +70,9 @@ bindsym $mod+Shift+h mode "hdmi"
     
 mode sound {
         # toggle to hdmi audio
-        bindsym h exec --no-startup-id /home/v/.config/i3/toggle_snd.sh hdmi
-        bindsym a exec --no-startup-id /home/v/.config/i3/toggle_snd.sh analog
-        bindsym m exec --no-startup-id /home/v/.config/i3/toggle_mic.sh monitor
+        bindsym h exec --no-startup-id /home/v/.config/i3/i3wm_config/toggle_snd.sh hdmi
+        bindsym a exec --no-startup-id /home/v/.config/i3/i3wm_config/toggle_snd.sh analog
+        bindsym m exec --no-startup-id /home/v/.config/i3/i3wm_config/toggle_mic.sh monitor
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -82,12 +82,12 @@ bindsym $mod+Shift+s mode "sound"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /home/v/.config/i3/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id /home/v/.config/i3/i3exit.sh logout, mode "default"
-    bindsym s exec --no-startup-id /home/v/.config/i3/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id /home/v/.config/i3/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id /home/v/.config/i3/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id /home/v/.config/i3/i3exit.sh shutdown, mode "default"
+    bindsym l exec --no-startup-id /home/v/.config/i3/i3wm_config/i3exit.sh lock, mode "default"
+    bindsym e exec --no-startup-id /home/v/.config/i3/i3wm_config/i3exit.sh logout, mode "default"
+    bindsym s exec --no-startup-id /home/v/.config/i3/i3wm_config/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id /home/v/.config/i3/i3wm_config/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id /home/v/.config/i3/i3wm_config/i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id /home/v/.config/i3/i3wm_config/i3exit.sh shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -96,14 +96,14 @@ mode "$mode_system" {
 bindsym $mod+End mode "$mode_system"
             
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id /home/v/.config/i3/volume_up.sh #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id /home/v/.config/i3/volume_down.sh #decrease sound volume
-bindcode $mod+Shift+60 exec --no-startup-id /home/v/.config/i3/volume_up.sh #increase sound volume
-bindcode $mod+Shift+59 exec --no-startup-id /home/v/.config/i3/volume_down.sh #decrease sound volume
-bindsym $mod+x exec --no-startup-id /home/v/.config/i3/volume_up.sh #increase sound volume
-bindsym $mod+z exec --no-startup-id /home/v/.config/i3/volume_down.sh #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/v/.config/i3/i3wm_config/volume_up.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/v/.config/i3/i3wm_config/volume_down.sh #decrease sound volume
+bindcode $mod+Shift+60 exec --no-startup-id /home/v/.config/i3/i3wm_config/volume_up.sh #increase sound volume
+bindcode $mod+Shift+59 exec --no-startup-id /home/v/.config/i3/i3wm_config/volume_down.sh #decrease sound volume
+bindsym $mod+x exec --no-startup-id /home/v/.config/i3/i3wm_config/volume_up.sh #increase sound volume
+bindsym $mod+z exec --no-startup-id /home/v/.config/i3/i3wm_config/volume_down.sh #decrease sound volume
 
-bindsym XF86AudioMute exec --no-startup-id /home/v/.config/i3/volume.sh #toggle mute
+bindsym XF86AudioMute exec --no-startup-id /home/v/.config/i3/i3wm_config/volume.sh #toggle mute
     
 # Sreen brightness controls
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -146,7 +146,7 @@ bindsym $mod+Return exec urxvt -cd "`xcwd`"
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec ~/.config/i3/dmenu.sh
+bindsym $mod+d exec ~/.config/i3/i3wm_config/dmenu.sh
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -203,8 +203,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 mode movespace {
-        bindsym p exec /home/v/.config/i3/workspace.sh primary
-        bindsym h exec /home/v/.config/i3/workspace.sh hdmi
+        bindsym p exec /home/v/.config/i3/i3wm_config/workspace.sh primary
+        bindsym h exec /home/v/.config/i3/i3wm_config/workspace.sh hdmi
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"    
