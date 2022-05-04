@@ -31,14 +31,14 @@ floating_modifier $mod
 
 exec --no-startup-id nm-applet
 exec --no-startup-id compton
-exec --no-startup-id feh --bg-fill /home/v/Pictures/wallpaper_link
+exec --no-startup-id feh --bg-fill /home/v/pictures/wallpaper_link
 exec --no-startup-id ~/.config/i3/i3wm_config/create_hdmi_mode.sh
 exec --no-startup-id xmodmap -e "keycode 62 = Return"
     
 bindsym $mod+Control+h --no-startup-id ~/.config/i3/i3wm_config/create_hdmi_mode.sh
 
-bindsym Print exec scrot -e 'mv $f /home/v/Pictures/screenshots'
-bindsym $mod+Print --release exec "nohup scrot -s -e 'mv $f /home/v/Pictures/screenshots' &"
+bindsym Print exec scrot -e 'mv $f /home/v/pictures/screenshots'
+bindsym $mod+Print --release exec "nohup scrot -s -e 'mv $f /home/v/pictures/screenshots' &"
 bindsym $mod+p exec /home/v/.config/i3/i3wm_config/reloadwp.sh
 bindsym $mod+c exec urxvt -e calcurse    
 # bindsym $mod+c --no-startup-id zenity --calendar
@@ -108,8 +108,8 @@ bindsym XF86AudioMute exec --no-startup-id /home/v/.config/i3/i3wm_config/volume
 # Sreen brightness controls
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-bindsym XF86MonBrightnessUp exec "val=$(/home/v/.config/i3/i3wm_config/brightness.sh up); notify-send brightness $val" 
-bindsym XF86MonBrightnessDown exec "val=$(/home/v/.config/i3/i3wm_config/brightness.sh down); notify-send brightness $val" 
+bindsym XF86MonBrightnessUp exec "val=$(/home/v/.config/i3/i3wm_config/brightness.sh up); echo $val > /home/v/.config/i3/brightness" 
+bindsym XF86MonBrightnessDown exec "val=$(/home/v/.config/i3/i3wm_config/brightness.sh down); echo $val > /home/v/.config/i3/brightness"
 # setup basic defaults
 exec --no-startup-id /home/v/.config/i3/setup.sh
 
@@ -273,7 +273,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command /home/v/.config/i3/i3wm_config/mybar
+	colors {
+	        background #000000
+		statusline #00A5FF #that neon blue
+		separator #666666
+		focused_workspace  #4c7899 #285577 #ffffff
+	        active_workspace   #333333 #5f676a #ffffff
+		inactive_workspace #333333 #222222 #888888
+		urgent_workspace   #2f343a #900000 #ffffff
+	}
+        # status_command /home/v/.config/i3/i3wm_config/mybar
+	status_command i3status
         font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
         font pango:DejaVu Sans Mono 10
 }
