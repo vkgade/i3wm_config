@@ -18,13 +18,19 @@ fi
 
 
 if (( $(echo "$SetBright > 10.0" | bc -l) )) || (( $(echo "$SetBright < 1.0" | bc -l) )); then
-    printf "Brightness is already max or min: ${SetBright}\n"
+    if  (( $(echo "$SetBright > 10.0" | bc -l) )); then
+	printf "MAX"
+    fi
+
+    if (( $(echo "$SetBright < 1.0" | bc -l) )); then
+	printf "MIN"
+    fi
     exit 1
 fi
 
 SetBright=$(echo "scale=1; ${SetBright} / 10" | bc)
 
 xrandr --output "$MON" --brightness "$SetBright"   # Set new brightness
-echo "$SetBright"
+echo "$(echo "$SetBright * 100" | bc)"
 # # Display current brightness
 # printf "Monitor $MON Brightness: ${SetBright}\n"
