@@ -1,8 +1,8 @@
 #!/bin/bash
 
 wplink="/home/v/Pictures/wallpaper_link"
-mode=1880x980_60.00
-# mode=3840x2160
+#mode=1880x980_60.00
+mode=3840x2160
 #mode=1920x1080
 
 if [ "$#" -eq 1 ]; then

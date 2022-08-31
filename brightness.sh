@@ -17,7 +17,7 @@ else
 fi
 
 
-if (( $(echo "$SetBright > 10.0" | bc -l) )) || (( $(echo "$SetBright < 1.0" | bc -l) )); then
+if (( $(echo "$SetBright > 20.0" | bc -l) )) || (( $(echo "$SetBright < 1.0" | bc -l) )); then
     if  (( $(echo "$SetBright > 10.0" | bc -l) )); then
 	printf "MAX"
     fi
